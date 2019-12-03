@@ -1,0 +1,21 @@
+{
+  "name": "api",
+  "version": "0.0.1",
+  "main": "index.js",
+  "scripts": {
+    "develop": "nodemon ./index.js",
+    "serve": "NODE_ENV=production node ./index.js",
+    "start": "npm run develop"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.7.13",
+    "morgan": "^1.9.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.1"
+  }
+}

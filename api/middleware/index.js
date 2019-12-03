@@ -1,0 +1,1 @@
+exports.enableCors = require('./enableCors');

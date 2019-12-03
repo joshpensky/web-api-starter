@@ -1,0 +1,58 @@
+{
+  "name": "web-api-starter",
+  "version": "0.0.1",
+  "description": "Starter for creating a React-based web app with a Mongo-Express API.",
+  "scripts": {
+    "bootstrap": "lerna clean -y && lerna bootstrap",
+    "build": "lerna run build",
+    "build:serve": "npm run build && lerna run serve",
+    "develop": "lerna run develop",
+    "start": "lerna run start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joshpensky/web-api-starter.git"
+  },
+  "author": "Josh Pensky <joshuapensky@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joshpensky/web-api-starter/issues"
+  },
+  "homepage": "https://github.com/joshpensky/web-api-starter#readme",
+  "devDependencies": {
+    "@babel/core": "^7.7.4",
+    "@babel/plugin-proposal-class-properties": "^7.7.4",
+    "@babel/preset-env": "^7.7.4",
+    "@babel/preset-react": "^7.7.4",
+    "@upstatement/eslint-config": "^0.4.3",
+    "@upstatement/prettier-config": "^0.3.0",
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.7.2",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.17.0",
+    "husky": "^3.1.0",
+    "lerna": "^3.19.0",
+    "lint-staged": "^9.5.0",
+    "prettier": "^1.19.1",
+    "pretty-quick": "^2.0.1",
+    "stylelint": "^12.0.0",
+    "stylelint-config-sass-guidelines": "^6.2.0"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.scss": [
+      "stylelint",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged && lint-staged"
+    }
+  }
+}

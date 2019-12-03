@@ -1,0 +1,1 @@
+exports.NoteController = require('./NoteController');
