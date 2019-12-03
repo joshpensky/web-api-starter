@@ -4,6 +4,12 @@ const compression = require('compression');
 const logger = require('morgan');
 const { enableCors } = require('../middleware');
 
+/**
+ * Creates a new Express app with JSON and URL-encoded
+ * body parsing.
+ * 
+ * @returns {express.Express} a new Express app instance
+ */
 const createApp = () => {
   const app = express();
 

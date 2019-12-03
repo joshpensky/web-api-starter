@@ -2,15 +2,21 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV || 'development'}`,
 });
 
-const { connectToMongo, createApp, createServer, env, serveWebDist } = require('./lib');
-const addRoutes = require('./routes');
+const {
+  connectToMongo,
+  createApp,
+  createRoutes,
+  createServer,
+  env,
+  serveWebDist,
+} = require('./lib');
 
 const main = async () => {
   const app = createApp();
 
   connectToMongo();
-  addRoutes(app);
-  // NOTE: Comment out to not serve the web dist in production mode
+  createRoutes(app);
+  // MARK: Comment out to not serve the web dist in production mode
   serveWebDist(app);
 
   const server = await createServer(app, env.port || 3001);

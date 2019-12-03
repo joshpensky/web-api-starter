@@ -1,21 +1,28 @@
 class BaseApiResponse {
   /**
-   *
-   * @param {boolean} ok
-   * @param {number} statusCode
-   * @param {any} [message]
+   * @constructor
+   * Creates a new API response with the given payload and status
+   * code.
+   * 
+   * @param {number} statusCode the status code of the response
+   * @param {any} [payload] the payload of the response to send
    */
-  constructor(ok, statusCode, message) {
-    this.ok = ok;
+  constructor(statusCode, payload) {
     this.statusCode = statusCode;
-    this.message = message;
+    this.payload = payload;
   }
 
+  /**
+   * Sends the response to the client using the given Response
+   * object.
+   * 
+   * @param {express.Response} res an Express Response object
+   */
   send(res) {
-    if (!this.message) {
+    if (!this.payload) {
       res.sendStatus(this.statusCode);
     } else {
-      res.status(this.statusCode).send(this.message);
+      res.status(this.statusCode).send(this.payload);
     }
   }
 }

@@ -3,10 +3,23 @@ const { ApiResponse, ErrorApiResponse, StatusApiResponse } = require('../common'
 const { DEFAULT_UPDATE_OPTIONS, ERROR_MESSAGES, MODELS, MONGO_ERRORS, STATUS_CODES } = require('../utils/constants');
 
 class NoteController {
+  /**
+   * @static
+   * Getter for the note controller's model.
+   * 
+   * @returns {mongoose.Model} the Note model
+   */
   static get Note() {
     return mongoose.model(MODELS.NOTE);
   }
 
+  /**
+   * @static
+   * Gets all notes and returns them in an API response.
+   * 
+   * @returns {ApiResponse|ErrorApiResponse} an API response containing
+   * the notes, or an error response if one occurs
+   */
   static async getAll() {
     try {
       const notes = await this.Note.find();
@@ -16,6 +29,14 @@ class NoteController {
     }
   }
 
+  /**
+   * @static
+   * Creates a new note with the given text content.
+   * 
+   * @param {string} text the note's text contents
+   * @returns {ApiResponse|ErrorApiResponse} an API response containing
+   * the new note, or an error response if one occurs
+   */
   static async create(text) {
     if (!text) {
       return new ErrorApiResponse(ERROR_MESSAGES.INVALID_TEXT);
@@ -29,6 +50,14 @@ class NoteController {
     }
   }
 
+  /**
+   * @static
+   * Gets a new note with the given ID.
+   * 
+   * @param {string} id the ID of the note to get
+   * @returns {ApiResponse|ErrorApiResponse} an API response containing
+   * the note with the given ID, or an error response if one occurs
+   */
   static async get(id) {
     try {
       const note = await this.Note.findById(id);
@@ -44,6 +73,16 @@ class NoteController {
     }
   }
 
+  /**
+   * @static
+   * Updates the text content of a note with the given ID.
+   * 
+   * @param {string} id the ID of the note to update
+   * @param {string} text the note's new text contents
+   * @returns {ApiResponse|ErrorApiResponse} an API response containing
+   * the updated note with the given ID, or an error response if one
+   * occurs
+   */
   static async update(id, text) {
     if (!text) {
       return new ErrorApiResponse(ERROR_MESSAGES.INVALID_TEXT);
@@ -62,6 +101,15 @@ class NoteController {
     }
   }
 
+  /**
+   * @static
+   * Deletes a note with the given ID.
+   * 
+   * @param {string} id the ID of the note to delete
+   * @returns {StatusApiResponse|ErrorApiResponse} an API response
+   * containing a "No Content" response, or an error response if one
+   * occurs
+   */
   static async delete(id) {
     try {
       const note = await this.Note.findByIdAndRemove(id);

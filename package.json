@@ -6,8 +6,8 @@
     "bootstrap": "lerna clean -y && lerna bootstrap",
     "build": "lerna run build",
     "build:serve": "npm run build && lerna run serve",
-    "develop": "lerna run develop",
-    "start": "lerna run start"
+    "develop": "lerna run --parallel develop",
+    "start": "lerna run --parallel start"
   },
   "repository": {
     "type": "git",

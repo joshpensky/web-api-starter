@@ -1,9 +1,8 @@
-const notes = require('./notes');
+const routes = [
+  {
+    path: '/notes',
+    route: require('./notes'),
+  },
+];
 
-const createRoutes = app => {
-  const BASE_PATH = '/api/v1';
-
-  notes(app, `${BASE_PATH}/notes`);
-};
-
-module.exports = createRoutes;
+module.exports = routes;
