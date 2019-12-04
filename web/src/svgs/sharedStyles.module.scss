@@ -1,0 +1,12 @@
+.container {
+  @include size(100%);
+}
+
+.fill {
+  fill: currentColor;
+}
+
+.stroke {
+  fill: none;
+  stroke: currentColor;
+}

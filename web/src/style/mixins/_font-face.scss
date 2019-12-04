@@ -1,0 +1,38 @@
+@mixin font-face(
+  $family-name,
+  $file-name,
+  $font-weight: 400,
+  $font-style: normal,
+  $formats: ('woff2', 'woff')
+) {
+  $file-path: '/static/fonts/#{$file-name}';
+  $urls: ();
+  $eot: null;
+
+  @each $format in $formats {
+    $file-format: $format;
+
+    @if $file-format == 'eot' {
+      $eot: url('#{$file-path}.#{$format}');
+      $format: '#{format}?#iefix';
+      $file-format: 'embedded-opentype';
+    } @else if $file-format == 'ttf' {
+      $file-format: 'truetype';
+    } @else if $file-format == 'otf' {
+      $file-format: 'opentype';
+    }
+
+    $urls: append($urls, url('#{$file-path}.#{$format}') format('#{$format}'), comma);
+  }
+
+  @font-face {
+    font-family: $family-name;
+    font-stretch: normal;
+    font-style: $font-style;
+    font-weight: $font-weight;
+    @if $eot {
+      src: $eot;
+    }
+    src: $urls;
+  }
+}

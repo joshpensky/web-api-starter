@@ -42,7 +42,7 @@ class NoteController {
       return new ErrorApiResponse(ERROR_MESSAGES.INVALID_TEXT);
     }
     try {
-      const note = new this.Note({ text });
+      const note = new this.Note({ text }, STATUS_CODES.CREATED);
       await note.save();
       return new ApiResponse(note);
     } catch (err) {

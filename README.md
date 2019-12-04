@@ -1,4 +1,4 @@
-# web-api-template
+# web-api-starter
 
 A starter React app for future projects and endeavors
 
