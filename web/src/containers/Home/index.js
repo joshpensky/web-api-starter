@@ -1,6 +1,7 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useMappedActions, useMappedState } from 'store';
 import { CREATE_NOTE, FETCH_NOTES, NOTES } from 'store/types';
+import { Link } from 'components';
 import { MODULES } from 'utils/constants';
 
 const Home = () => {
@@ -17,11 +18,7 @@ const Home = () => {
     fetchNotes: FETCH_NOTES,
   });
 
-  const onChange = evt => {
-    setInput(evt.target.value);
-  };
-
-  const addNote = useCallback(async () => {
+  const addNote = async () => {
     try {
       setError('');
       setDisabled(true);
@@ -31,7 +28,11 @@ const Home = () => {
       setError(err.error);
     }
     setDisabled(false);
-  }, [createNote, input]);
+  };
+
+  const onChange = evt => {
+    setInput(evt.target.value);
+  };
 
   useEffect(() => {
     fetchNotes();
@@ -45,7 +46,9 @@ const Home = () => {
       {error && <p style={{ color: 'red' }}>{error}</p>}
       <ul>
         {notes.map(({ _id, text }) => (
-          <li key={_id}>{text}</li>
+          <li key={_id}>
+            <Link to={`/${_id}`}>{text}</Link>
+          </li>
         ))}
       </ul>
     </div>

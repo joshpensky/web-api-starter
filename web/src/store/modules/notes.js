@@ -1,4 +1,4 @@
-import { ADD_NOTE, FETCH_NOTES, CREATE_NOTE, NOTES, SET_NOTES } from 'store/types';
+import { ADD_NOTE, CREATE_NOTE, FETCH_NOTES, NOTES, SET_NOTES } from 'store/types';
 import { api } from 'utils';
 import { MODULES } from 'utils/constants';
 

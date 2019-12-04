@@ -1,4 +1,4 @@
-import { Home, NotFound } from 'containers';
+import { Detail, Home, NotFound } from 'containers';
 
 /**
  * Gets the route config for the router.
@@ -10,6 +10,11 @@ const getRoutes = () => [
     path: '/',
     exact: true,
     component: Home,
+  },
+  {
+    path: '/:id',
+    exact: true,
+    component: Detail,
   },
   {
     path: '*',

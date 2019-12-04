@@ -6,7 +6,7 @@ import styles from './page.module.scss';
 const Page = ({ children }) => (
   <div className={styles.page}>
     <nav>
-      <Link to="/">Starter</Link>
+      <Link to="/">Home</Link>
     </nav>
     <main className={styles.main}>{children}</main>
     <footer>&copy; 2019, Josh Pensky.</footer>
