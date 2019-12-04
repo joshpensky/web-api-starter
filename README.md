@@ -26,7 +26,7 @@ Follow the instructions in the links below to install the required dependencies 
 
 This starter is meant to be reused for projects utilizing a React web app and an Express API using a MongoDB database.
 
-To quickly duplicate this starter, click on the green `Use this template` button near the top of the [GitHub repo page](https://github.com/joshpensky/web-api-starter).
+To quickly duplicate this starter, click on the green `Use this template` button near the top of the [GitHub repo page](https://github.com/joshpensky/web-api-starter) (or click [here](https://github.com/joshpensky/web-api-starter/generate)).
 
 Once the repo is on your account, you can clone it locally on your machine.
 
