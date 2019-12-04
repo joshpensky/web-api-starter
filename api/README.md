@@ -28,10 +28,8 @@ After following the installation instructions in the [root directory](../README.
 
    Each of your databases will have a unique standard MongoDB URI (visible at the top of a database's page on mLab). You can deconstruct them and add to your `env` files as follows:
 
-   ```html
-   mongodb://<MONGO_USERNAME
-     >:<MONGO_PASSWORD>@<MONGO_URI></MONGO_URI></MONGO_PASSWORD
-   ></MONGO_USERNAME>
+   ```
+   mongodb://<MONGO_USERNAME>:<MONGO_PASSWORD>@<MONGO_URI>
    ```
 
 ## 🛠 Development Workflow
