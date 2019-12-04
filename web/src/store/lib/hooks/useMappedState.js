@@ -5,21 +5,21 @@ import useStore from './useStore';
  * React hook for mapping a module's state to variables within
  * a functional component. You can either create aliases for
  * state variables, or create computed values with functions.
- * 
+ *
  * @example
  * ```js
  * const { minutes } = useMappedState('time', {
  *   minutes: MINUTES,
  * });
  * ```
- * 
+ *
  * @example
  * ```js
  * const { seconds } = useMappedState('time', {
  *   seconds: state => state[MINUTES] * 60,
  * });
  * ```
- * 
+ *
  * @param {string} moduleName the name of the module to access state
  * @param {Record<string, string|function>} map a map from variable
  * names to state variable names or state getter functions

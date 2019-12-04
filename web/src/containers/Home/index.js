@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useMappedActions, useMappedState } from 'store';
+import { useMappedActions, useMappedState } from 'store/lib';
 import { CREATE_NOTE, FETCH_NOTES, NOTES } from 'store/types';
 import { Link } from 'components';
 import { MODULES } from 'utils/constants';

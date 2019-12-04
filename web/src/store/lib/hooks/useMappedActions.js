@@ -6,7 +6,7 @@ import useStore from './useStore';
  * dispatcher functions. This is to be used as a shorthand for
  * dispatching action types and payloads, by creating functions that
  * accept their dispatch payloads.
- * 
+ *
  * @example
  * ```js
  * const { addSeconds } = useMappedActions('time', {
@@ -14,7 +14,7 @@ import useStore from './useStore';
  * });
  * addSeconds(20);
  * ```
- * 
+ *
  * @param {string} moduleName the name of the module to access state
  * @param {Record<string, string|function>} map a map from variable
  * names to action/mutation types

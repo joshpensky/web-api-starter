@@ -4,8 +4,8 @@ import storeContext from './storeContext';
 import useAsyncReducer from './hooks/useAsyncReducer';
 
 const Provider = ({ children, store }) => {
-  const [reducer, initialState] = store;
-  const [state, dispatch] = useAsyncReducer(reducer, initialState);
+  const [reducer, initialState, modules] = store;
+  const [state, dispatch] = useAsyncReducer(reducer, initialState, modules);
 
   const value = [state, dispatch];
   return <storeContext.Provider value={value}>{children}</storeContext.Provider>;

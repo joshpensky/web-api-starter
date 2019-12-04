@@ -1,5 +1,6 @@
 import React from 'react';
-import store, { Provider } from 'store';
+import { Provider } from 'store/lib';
+import store from 'store';
 import Router from 'router';
 import { Page } from 'components';
 import 'style/index.scss';

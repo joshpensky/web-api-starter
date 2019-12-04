@@ -26,7 +26,8 @@ const getScopedMutations = (scopedName, mutations) => {
  *
  * @param {object[]} [modules=[]] the array of modules to build the
  * store from
- * @returns {[function, object]} the store reducer and initial state
+ * @returns {[function, object, modules]} the store reducer, initial state,
+ * and modules
  */
 const createStore = (modules = []) => {
   const initialState = {};
@@ -59,7 +60,7 @@ const createStore = (modules = []) => {
     return state;
   };
 
-  return [mutationReducer, initialState];
+  return [mutationReducer, initialState, modules];
 };
 
 export default createStore;

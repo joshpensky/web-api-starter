@@ -4,7 +4,7 @@ import storeContext from '../storeContext';
 /**
  * React hook for retrieving the global store state and
  * dispatch function. Can scope to a given module.
- * 
+ *
  * @example
  * ```js
  * const [store, dispatch] = useContext('time');

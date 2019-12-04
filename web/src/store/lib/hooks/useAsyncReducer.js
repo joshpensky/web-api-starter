@@ -1,16 +1,16 @@
 import { useCallback, useMemo, useReducer } from 'react';
-import { modules } from 'store';
 import getScopedItems from '../getScopedItems';
 
 /**
  * React hook for replacing the default `useReducer` to be able
  * to handle async dispatches.
- * 
+ *
  * @param {function} reducer action reducer that processes state
  * and actions to get the next store state
  * @param {object} initialState the initial store state
+ * @param {object[]} modules the modules within the store
  */
-const useAsyncReducer = (reducer, initialState) => {
+const useAsyncReducer = (reducer, initialState, modules) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   /**
@@ -27,7 +27,7 @@ const useAsyncReducer = (reducer, initialState) => {
       const scopedItem = async (chosenAction, scopedState, action, globalState) => {
         const dispatchedAction = await new Promise((resolve, reject) => {
           /**
-           * Runs the chosen action, passing in the current state context 
+           * Runs the chosen action, passing in the current state context
            * (including scoped state, global state, and a commit callback)
            * and the action payload.
            */
@@ -40,7 +40,7 @@ const useAsyncReducer = (reducer, initialState) => {
               reject(err);
             }
           };
-          
+
           runAction();
         });
         dispatch(dispatchedAction);
@@ -59,13 +59,13 @@ const useAsyncReducer = (reducer, initialState) => {
         }),
         {},
       ),
-    [getScopedActions],
+    [getScopedActions, modules],
   );
 
   /**
    * Dispatch function that handles both mutation cases (handled by
    * the default reducer dispatch) and async action cases.
-   * 
+   *
    * @param {object} action an action dispatched to the store
    * @param {string} action.type the type of action that was dispatched.
    * Used to narrow which reducer to use
@@ -80,7 +80,7 @@ const useAsyncReducer = (reducer, initialState) => {
       }
       return dispatch(action);
     },
-    [state, dispatch],
+    [actionCases, dispatch, state],
   );
 
   return [state, asyncDispatch];
