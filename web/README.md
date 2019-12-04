@@ -20,7 +20,7 @@ Follow the installation instructions in the [root directory](../README.md#instal
 
 2. Run `npm start` to start up the web development server
 
-   You should now be able to visit [http://localhost:8000](http://localhost:8000) in your browser for the web app and begin development!
+   You should now be able to visit [http://localhost:3000](http://localhost:3000) in your browser for the web app and begin development!
 
    _**Note:** if at any time you would like to cancel the running server instance, press `CTRL + C` in the open terminal window._
 

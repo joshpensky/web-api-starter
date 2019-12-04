@@ -51,7 +51,7 @@ Do the following in the root directory of the repo:
 
 4. Run `npm run bootstrap` for installing `web` and `api` dependencies
 
-Then follow any additional instructions in the [`web`](web/README.md#-getting-started) and [`api`](web/README.md#-getting-started) READMEs.
+Then follow any additional instructions in the [`web`](web/README.md#-getting-started) and [`api`](api/README.md#-getting-started) READMEs.
 
 ## 🛠 Development Workflow
 
@@ -59,7 +59,7 @@ Then follow any additional instructions in the [`web`](web/README.md#-getting-st
 
 2. Run `npm start` to start up the web and API development servers
 
-   You should now be able to visit [http://localhost:8000](http://localhost:8000) in your browser for the web app, [http://localhost:3001/api/v1](http://localhost:3001/api/v1) for the API server!
+   You should now be able to visit [http://localhost:3000](http://localhost:3000) in your browser for the web app, [http://localhost:3001/api/v1](http://localhost:3001/api/v1) for the API server!
 
    _**Note:** if at any time you would like to cancel the running server instance, press `CTRL + C` in the open terminal window._
 
