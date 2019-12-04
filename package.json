@@ -1,7 +1,7 @@
 {
   "name": "web-api-starter",
-  "version": "0.0.1",
-  "description": "Starter for creating a React-based web app with a Mongo-Express API.",
+  "version": "0.1.0",
+  "description": "React web app and Express/MongoDB API starter",
   "scripts": {
     "bootstrap": "lerna clean -y && lerna bootstrap",
     "build": "lerna run build",

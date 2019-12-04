@@ -1,30 +1,78 @@
-# web-api-starter
+# Web API Starter
 
-A starter React app for future projects and endeavors
+> React web app and Express/MongoDB API starter
 
-## Getting started
+A starter for creating a React web app with an Express API using a MongoDB database.
 
-### Dependencies
+## Table of Contents
+
+- [Getting Started](#-getting-started)
+  - [Pre-requisites](#pre-requisites)
+  - [Using the Template](#using-the-template)
+  - [Installation](#installation)
+- [Development Workflow](#-development-workflow)
+- [Code Quality](#-code-quality)
+
+## 🚀 Getting Started
+
+### Pre-requisites
 
 Follow the instructions in the links below to install the required dependencies on your local machine:
 
-- [node.js](https://nodejs.org/en/download/)
-- [npm](https://www.npmjs.com/get-npm)
+- [Node.js](https://nodejs.org/en/download/)
+- [NPM](https://www.npmjs.com/get-npm)
 
-### Environment
+### Using the Template
 
-Fork this repository and clone the new one onto your local machine. In the root directory of the folder, run the following command:
+This starter is meant to be reused for projects utilizing a React web app and an Express API using a MongoDB database.
 
-```sh
-$ npm i && npm run bootstrap
-```
+To quickly duplicate this starter, click on the green `Use this template` button near the top of the [GitHub repo page](https://github.com/joshpensky/web-api-starter).
 
-This will install of the necessary dependencies for development. Next, you're going to want to set up a local instance of the project running in a server. To do so, run the following command:
+Once the repo is on your account, you can clone it locally on your machine.
 
-```sh
-$ npm start
-```
+You can then do a search for the following terms and replace them with your desired package name:
 
-You should now be able to visit [localhost](http://localhost:3000) in your browser and begin development!
+- `web-api-starter`
+- `Web API Starter`
 
-_**Note:** if at any time you would like to cancel the running server instance, press `CTRL + C` in the open terminal window._
+### Installation
+
+Do the following in the root directory of the repo:
+
+1. Ensure NVM is installed globally.
+
+   We are using NVM (Node Version Manager) to maintain the same Node version that's running on the Linux machines.
+
+   To install NVM, follow the steps provided [here](https://github.com/nvm-sh/nvm/blob/master/README.md#installation-and-update).
+
+2. Run `nvm install` to ensure you're using the correct version of Node
+
+3. Run `npm install` for dev dependencies
+
+4. Run `npm run bootstrap` for installing `web` and `api` dependencies
+
+Then follow any additional instructions in the [`web`](web/README.md#-getting-started) and [`api`](web/README.md#-getting-started) READMEs.
+
+## 🛠 Development Workflow
+
+1. Run `nvm use` to ensure you're using the correct version of Node
+
+2. Run `npm start` to start up the web and API development servers
+
+   You should now be able to visit [http://localhost:8000](http://localhost:8000) in your browser for the web app, [http://localhost:3001/api/v1](http://localhost:3001/api/v1) for the API server!
+
+   _**Note:** if at any time you would like to cancel the running server instance, press `CTRL + C` in the open terminal window._
+
+3. Start coding!
+
+## 🙅 Code Quality
+
+Don't commit messy code!
+
+Here's a list of things already configured to keep you in line:
+
+- [EditorConfig](https://editorconfig.org/)
+- [Upstatement's ESLint Config](https://github.com/Upstatement/eslint-config)
+- [Upstatement's Prettier Config](https://github.com/Upstatement/prettier-config)
+
+All of these tools will be run with the pre-commit hook (configured with [Husky](https://github.com/typicode/husky)) to make sure you're not committing inconsistent code. We highly recommend configuring your editor to use these tools so that you can see (and fix) style violations as you write code.
