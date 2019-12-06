@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'components';
+import { withRouter } from 'react-router-dom';
 import styles from './page.module.scss';
 
 const Page = ({ children }) => (
@@ -15,7 +16,6 @@ const Page = ({ children }) => (
 
 Page.propTypes = {
   children: PropTypes.node,
-  location: PropTypes.object.isRequired,
 };
 
-export default Page;
+export default withRouter(Page);

@@ -7,7 +7,7 @@ import 'style/index.scss';
 
 const App = () => (
   <Provider store={store}>
-    <Router>{(content, location) => <Page location={location}>{content}</Page>}</Router>
+    <Router>{content => <Page>{content}</Page>}</Router>
   </Provider>
 );
 

@@ -8,18 +8,13 @@ const Router = ({ children }) => {
   const routes = useMemo(() => getRoutes(), []);
   return (
     <BrowserRouter history={history}>
-      <Route
-        render={({ location }) =>
-          children(
-            <Switch>
-              {routes.map(({ component, exact, path }, i) => (
-                <Route key={i} path={path} exact={exact} component={component} />
-              ))}
-            </Switch>,
-            location,
-          )
-        }
-      />
+      {children(
+        <Switch>
+          {routes.map(({ component, exact, path }, i) => (
+            <Route key={i} path={path} exact={exact} component={component} />
+          ))}
+        </Switch>,
+      )}
     </BrowserRouter>
   );
 };

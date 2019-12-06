@@ -1,6 +1,6 @@
-import { createStore } from 'store/lib';
+import { Store } from 'store/lib';
 import modules from './modules';
 
-const store = createStore(modules);
+const store = new Store(modules);
 
 export default store;
