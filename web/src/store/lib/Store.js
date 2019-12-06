@@ -15,6 +15,8 @@ class Store {
     this._mutationCases = {};
     this._actionCases = {};
 
+    this._listeners = {};
+
     this._initStore();
   }
 
@@ -114,6 +116,56 @@ class Store {
   };
 
   /**
+   * Gets the current state of the store.
+   *
+   * @returns {object} an immutable copy of the store state
+   */
+  getState = scopedName => {
+    let state = this._state;
+    if (scopedName in state) {
+      state = state[scopedName];
+    }
+    return Object.freeze(state);
+  };
+
+  /**
+   * @private
+   * Gets a unique listener ID for a new listener.
+   *
+   * @returns {string} the listener's unique listener ID
+   */
+  _getUniqueListenerId = () => {
+    let listenerId;
+
+    do {
+      listenerId = Math.random()
+        .toString(36)
+        .substr(2, 9);
+    } while (this._listeners[listenerId]);
+
+    return listenerId;
+  };
+
+  /**
+   * Subscribes a new listener to all state changes (mutations) that
+   * occur from dispatches.
+   *
+   * @param {function} listener a function listener, that accepts a
+   * single argument of the new state
+   * @returns {function} an unsubscribe function to stop the listener
+   * from receiving new states
+   */
+  subscribe = listener => {
+    const id = this._getUniqueListenerId();
+    this._listeners[id] = listener;
+    listener(this.getState());
+
+    return () => {
+      delete this._listeners[id];
+    };
+  };
+
+  /**
    * Dispatch function that handles both mutation cases (handled by
    * the default reducer dispatch) and async action cases.
    *
@@ -130,19 +182,10 @@ class Store {
       dispatchedAction = await matchAction(this._state, action);
     }
     this._state = this._reduceMutations(this._state, dispatchedAction);
-  };
-
-  /**
-   * Gets the current state of the store.
-   *
-   * @returns {object} an immutable copy of the store state
-   */
-  getState = scopedName => {
-    let state = this._state;
-    if (scopedName in state) {
-      state = state[scopedName];
-    }
-    return Object.freeze(state);
+    const newState = this.getState();
+    Object.values(this._listeners).forEach(listener => {
+      listener(newState);
+    });
   };
 }
 
